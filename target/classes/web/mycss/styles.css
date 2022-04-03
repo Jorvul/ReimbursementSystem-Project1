@@ -1,0 +1,22 @@
+table{
+	border-top-style: solid;
+	border-radius: 10px;
+}
+html{
+	background-color: teal;
+}
+
+form{
+	margin:20px;
+	border-style: solid;
+	width: 900px;
+	border-radius: 20px;
+	padding-left: 10px;
+	align-content: center;
+	padding-bottom: 10px;
+	background-color: gray;
+}
+
+.burse{
+	border-style: solid;
+}
