@@ -18,3 +18,16 @@ form{
 .burse{
 	border-style: solid;
 }
+
+.f1{
+	margin:20px;
+	border-style: solid;
+	width: 735px;
+	border-radius: 20px;
+	padding-right:10px;
+	padding-left: 10px;
+	align-content: center;
+	padding-bottom: 15px;
+	background-color: gray;
+	padding-top: 15px
+}
