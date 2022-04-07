@@ -11,6 +11,7 @@ public class Main {
 
 		Javalin app = Javalin.create(ctx -> {
 			ctx.addStaticFiles("web", Location.CLASSPATH);
+			ctx.enableCorsForAllOrigins();
 		}).start();
 		
 		app.get("/employees", EmployeeController.getAllEmployees);
