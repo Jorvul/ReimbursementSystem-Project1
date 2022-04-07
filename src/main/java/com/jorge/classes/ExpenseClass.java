@@ -5,9 +5,11 @@ public class ExpenseClass {
 	private int expenseId;
 	private int authorId;
 	private int resolverId;
+	private String expenseType;
 	private double amount;
 	private String description;
 	private String submitTime;
+	private String resolvedDate;
 	private boolean accepted;
 	private boolean resolved;
 	
@@ -15,15 +17,17 @@ public class ExpenseClass {
 		super();
 	}
 
-	public ExpenseClass(int expenseId, int authorId, int resolverId, double amount, String description,
-			String submitTime, boolean accepted, boolean resolved) {
+	public ExpenseClass(int expenseId, int authorId, int resolverId,String expenseType, double amount, String description,
+			String submitTime, String resolvedDate, boolean accepted, boolean resolved) {
 		super();
 		this.expenseId = expenseId;
 		this.authorId = authorId;
 		this.resolverId = resolverId;
+		this.expenseType = expenseType;
 		this.amount = amount;
 		this.description = description;
 		this.submitTime = submitTime;
+		this.resolvedDate = resolvedDate;
 		this.accepted = accepted;
 		this.resolved = resolved;
 	}
@@ -52,6 +56,14 @@ public class ExpenseClass {
 		this.resolverId = resolverId;
 	}
 
+	public String getExpenseType() {
+		return expenseType;
+	}
+
+	public void setExpenseType(String expenseType) {
+		this.expenseType = expenseType;
+	}
+
 	public double getAmount() {
 		return amount;
 	}
@@ -76,6 +88,14 @@ public class ExpenseClass {
 		this.submitTime = submitTime;
 	}
 
+	public String getResolvedDate() {
+		return resolvedDate;
+	}
+
+	public void setResolvedDate(String resolvedDate) {
+		this.resolvedDate = resolvedDate;
+	}
+
 	public boolean isAccepted() {
 		return accepted;
 	}
@@ -95,8 +115,9 @@ public class ExpenseClass {
 	@Override
 	public String toString() {
 		return "ExpenseClass [expenseId=" + expenseId + ", authorId=" + authorId + ", resolverId=" + resolverId
-				+ ", amount=" + amount + ", description=" + description + ", submitTime=" + submitTime + ", accepted="
-				+ accepted + ", resolved=" + resolved + "]";
+				+ ", expenseType=" + expenseType + ", amount=" + amount + ", description=" + description
+				+ ", submitTime=" + submitTime + ", resolvedDate=" + resolvedDate + ", accepted=" + accepted
+				+ ", resolved=" + resolved + "]";
 	}
 	
 }

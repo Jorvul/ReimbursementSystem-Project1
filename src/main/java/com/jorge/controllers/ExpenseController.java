@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.jorge.classes.EmployeeClass;
+import com.jorge.classes.ExpenseClass;
 import com.jorge.jdbc.ConnectionUtils;
 
 import io.javalin.http.Handler;
 
-public class EmployeeController {
-	public static Handler getAllEmployees=ctx->{
+public class ExpenseController {
+	public static Handler getAllExpenses=ctx->{
 		 //1. get connection using coonecUtil Class
 		 ResultSet rs;
 		 PreparedStatement ptsmt;
@@ -20,19 +21,24 @@ public class EmployeeController {
 		 //2. create a PreparedStatement object and execute the query select * from student and fecth in results set
 		    
 		    
-		        String selectEmployees="select * from employee";    
+		        String selectEmployees="select * from reimbursements";    
 		        ptsmt = conn.prepareStatement(selectEmployees);
 		        rs = ptsmt.executeQuery();
 		 //3.Student ArrayList
-		 ArrayList<EmployeeClass> sList = new ArrayList<EmployeeClass>();
-		 EmployeeClass s;
+		 ArrayList<ExpenseClass> sList = new ArrayList<ExpenseClass>();
+		 ExpenseClass s;
 		 while(rs.next()) {
-			 int id = rs.getInt("employee_id");
-			 String name = rs.getString("employee_name");
-			 String title = rs.getString("employee_title");
-			 String user = rs.getString("username");
-			 String pass = rs.getString("password");
-			 s=new EmployeeClass(id, name, title, user, pass);
+			 int expid = rs.getInt("id");
+			 int id = rs.getInt("author_id");
+			 int resolve = rs.getInt("resolver_id");
+			 String type = rs.getString("reimbursement_type");
+			 double amount = rs.getDouble("amount");
+			 String description = rs.getString("description");
+			 String date = rs.getString("submit_date");
+			 String sdate = rs.getString("resolved_date");
+			 boolean resolved = rs.getBoolean("resolved");
+			 boolean accept = rs.getBoolean("accepted");
+			 s=new ExpenseClass(expid, id, resolve, type, amount, description, date, sdate, resolved, accept);
 			 sList.add(s);
 		 }
 		 rs.close();
