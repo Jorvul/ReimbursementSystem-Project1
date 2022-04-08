@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="mycss/styles.css">
+<script src="myscripts/script.js"></script>
+</head>
+<body>
+<table>
+<tr>
+<td>
+<form class="allform" onsubmit="event.preventDefault();onFormSubmit();">
+<div>
+<label>Employee ID</label>
+<input type="text" name="employeeID" id="employeeID">
+</div>
+<br/>
+<div>
+<label>Expense Type</label>
+<input type="text" name="expense" id="expense">
+</div>
+<br/>
+<div>
+<label>Amount</label>
+<input type="text" name="amount" id="amount">
+</div>
+<br/>
+<div>
+<label>Description</label>
+<textarea rows="3" cols="20" name="description" id="description"></textarea>
+</div>
+<br/>
+<div>
+<input type="submit" value="Submit">
+</div>
+</form>
+</td>
+</tr></table>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<table class="list" border="3" id="employeeList">
+<tr>
+<th>Employee ID</th>
+<th>Expense Type</th>
+<th>Amount</th>
+<th>Description</th>
+</tr>
+<tbody></tbody>
+</table>
+</body>
+</html>

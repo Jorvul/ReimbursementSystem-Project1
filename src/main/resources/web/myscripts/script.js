@@ -63,3 +63,39 @@ function managerApproval(){
 	document.location.href="acceptordeny.html";
 }
 
+function getValue(){
+	const amount = document.getElementById("amount").value;
+	const area = document.getElementById("words").value;
+	//const misc = document.getElementById("food").value;
+	//document.onclick(misc);
+	document.write(amount)
+	document.write(area);
+	//document.write(misc);
+}
+
+function onFormSubmit(){
+	const formData = readFormData();
+	insertNewRecord(formData);
+}
+function readFormData(){
+	const formData ={};
+	formData["employeeID"]= document.getElementById("employeeID").value;
+	formData["expense"]= document.getElementById("expense").value;
+	formData["amount"]= document.getElementById("amount").value;
+	formData["description"]= document.getElementById("description").value;
+	return formData;
+}
+
+function insertNewRecord(data){
+	const table = document.getElementById("employeeList").getElementsByTagName("tbody")[0];
+	const newRow = table.insertRow(table.length);
+	cell1 = newRow.insertCell(0);
+	cell1.innerHTML= data.employeeID;
+	cell2 = newRow.insertCell(1);
+	cell2.innerHTML = data.expense;
+	cell3 = newRow.insertCell(2);
+	cell3.innerHTML = data.amount;
+	cell4 = newRow.insertCell(3);
+	cell4.innerHTML = data.description;
+
+}

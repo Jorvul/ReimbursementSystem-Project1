@@ -4,23 +4,26 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="mycss/styles.css">
+<script src="myscripts/script.js"></script>
 </head>
 <body>
 <a href="Login.html">Login Page</a>
-<form class="burse" method="get">
+<form class="burse" onsubmit="getValue()">
 <p>Enter details here</p>
 <p>Type</p>
 <span>
 <label for="food">Food</label>
-<input type="radio" name="food">
-<label for="travel">Travel</label>
-<input type="radio" name="travel">
+<input type="radio" id="food">
+<label for="travel">Transportation</label>
+<input type="radio" id="transportation">
+<label for="other">Other</label>
+<input type="radio" id="other">
 </span>
 <p>Amount:</p>
-<input type="text">
+<input type="text" id="amount">
 <p>Description:</p>
-<textarea rows="5" cols="20"></textarea>
-<button type="submit">Submit</button>
+<textarea rows="5" cols="20" id="words"></textarea>
+<input type="submit">
 </form>
 </body>
 </html>
