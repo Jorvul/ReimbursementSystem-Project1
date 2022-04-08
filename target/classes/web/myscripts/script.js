@@ -30,3 +30,14 @@ function displayData(response) {
 function buttonClicked(){
 	document.location.href="index.html";
 }
+
+function Home(){
+	document.location.href="Login.html";
+}
+function expensePage(){
+	document.location.href="reimbursements.html";
+}
+function managerApproval(){
+	document.location.href="acceptordeny.html";
+}
+

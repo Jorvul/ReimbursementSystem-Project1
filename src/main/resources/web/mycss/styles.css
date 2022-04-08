@@ -39,3 +39,18 @@ form{
 #title{
 	text-align: center;
 }
+
+.earth_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 300px;
+    /* Your animation here
+    /* Set up your keyframe animation here */
+    animation: spin infinite linear 0s;
+}
+
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+
+}
