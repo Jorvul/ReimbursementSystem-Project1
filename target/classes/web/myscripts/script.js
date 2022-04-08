@@ -28,7 +28,14 @@ function displayData(response) {
 }
 
 function buttonClicked(){
-	document.location.href="index.html";
+	const username = document.getElementById("username").value;
+	const password = document.getElementById("password").value;
+	if(username==="Pelotero" && password=== "pasword"){
+		alert("Login successful");
+		document.location.href="reimbursements.html";
+	} else {
+		alert("Login failed")
+	}
 }
 
 function Home(){
