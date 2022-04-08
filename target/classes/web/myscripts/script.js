@@ -33,6 +33,21 @@ function buttonClicked(){
 	if(username==="Pelotero" && password=== "pasword"){
 		alert("Login successful");
 		document.location.href="reimbursements.html";
+	} else if(username ==="Boomer" && password==="tooOldForThis100A!") {
+		alert("Login successful");
+		document.location.href="reimbursements.html";
+	} else if(username==="Thor123" && password==="dawgsss3350?"){
+		alert("Login successful");
+		document.location.href="reimbursements.html";
+	} else if(username==="FashionCap" && password==="ABCDEF!"){
+		alert("Login successful");
+		document.location.href="reimbursements.html";
+	} else if(username==="SwissCheese" && password==="tryhackingme000"){
+		alert("Login successful");
+		document.location.href="reimbursements.html";
+	} else if(username==="TheVoss" && password==="theBoss$$$"){
+		alert("Login successful");
+		document.location.href="acceptordeny.html";
 	} else {
 		alert("Login failed")
 	}
