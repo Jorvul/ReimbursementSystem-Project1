@@ -54,3 +54,7 @@ form{
     to {transform:rotate(360deg);}
 
 }
+
+.list{
+	background-color:silver;
+}

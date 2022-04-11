@@ -79,4 +79,46 @@ public class ExpenseController {
 			pstmt.execute();
 			ctx.status(200);
 		};
+		
+		public static Handler createExpenxe=ctx->{
+			ExpenseClass newExpense = ctx.bodyAsClass(ExpenseClass.class);
+			Connection conn = ConnectionUtils.createConnection();
+			PreparedStatement pstmt = conn.prepareStatement("insert into reimbursements (author_id,reimbursement_type,amount,description,submit_date) values (?,?,?,?,?)");
+			pstmt.setInt(1,newExpense.getAuthorId());
+			pstmt.setString(2, newExpense.getExpenseType());
+			pstmt.setDouble(3, newExpense.getAmount());
+			pstmt.setString(4,newExpense.getDescription());
+			pstmt.setString(5, newExpense.getSubmitTime());
+			pstmt.execute();
+			ctx.status(200);
+			
+		};
+		
+		public static Handler getExpenseById=ctx->{
+			ResultSet rs;
+			PreparedStatement ptsmt;
+			int c = Integer.parseInt(ctx.pathParam("expenseid"));
+			ArrayList<ExpenseClass> expense = new ArrayList<ExpenseClass>();
+			Connection conn=ConnectionUtils.createConnection();
+				String selectExpense = "select * from reimbursements where author_id=?";
+				ptsmt = conn.prepareStatement(selectExpense);
+				ptsmt.setInt(1,c);
+				rs = ptsmt.executeQuery();
+				ExpenseClass c1;
+				while(rs.next()) {
+					int id = rs.getInt("id");
+					int id1 = rs.getInt("author_id");
+					int id2 = rs.getInt("resolver_id");
+					String string = rs.getString("reimbursement_type");
+					Double id3 = rs.getDouble("amount");
+					String id4 = rs.getString("description");
+					String id5 = rs.getString("submit_date");
+					String id6 = rs.getString("resolved_date");
+					boolean id7 = rs.getBoolean("resolved");
+					boolean id8 = rs.getBoolean("accepted");
+					c1 = new ExpenseClass(id,id1, id2, string, id3, id4, id5, id6, id7, id8);
+					//ExpenseClass.add(c1);
+				}
+		};
+	
 }
