@@ -18,8 +18,9 @@ public class Main {
 		app.get("/employee/{employee_id}", EmployeeController.getEmployeeById);
 		app.delete("/employees/{employee_id}", EmployeeController.deleteEmployee);
 		app.get("/expenses", ExpenseController.getAllExpenses);
-		app.post("/expenses", ExpenseController.createExpenxe);
+		app.post("/expenses", ExpenseController.createExpense);
 		app.get("/expenses/{expenseid}", ExpenseController.getExpenseById);
+		app.put("/employee/{author_id}", ExpenseController.ApproveDenyExpense);
 	}
 
 }

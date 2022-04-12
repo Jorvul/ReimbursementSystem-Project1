@@ -59,8 +59,24 @@ function getAllExpenses(){
     alert("These are all the expenses");
     fetch(apiURL)
     .then(response => response.json())  // convert to json
-    .then(json => displayData(json))    //pass data to displayData() OR print data to console
+    .then(json => displayData2(json))    //pass data to displayData() OR print data to console
     .catch(err => console.log('Request Failed', err)); // Catch errors
+}
+function displayData2(response) {
+    var dataSection = document.getElementById('exp');
+
+   //alert(response.length)
+   var list=document.createElement("ul");
+
+   for(i=0;i<response.length;i++){
+    var item=document.createElement("li");
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       //alert(response[i].id +" "+response[i].name);
+       list.appendChild(item);
+   }
+   dataSection.appendChild(list);
+
+
 }
 
 async function AsyncFunc(data){
@@ -105,16 +121,16 @@ function buttonClicked(){
 		document.location.href="sample.html";
 	} else if(username ==="Boomer" && password==="tooOldForThis100A!") {
 		alert("Login successful");
-		document.location.href="reimbursements.html";
+		document.location.href="sample";
 	} else if(username==="Thor123" && password==="dawgsss3350?"){
 		alert("Login successful");
-		document.location.href="reimbursements.html";
+		document.location.href="sample.html";
 	} else if(username==="FashionCap" && password==="ABCDEF!"){
 		alert("Login successful");
-		document.location.href="reimbursements.html";
+		document.location.href="sample.html";
 	} else if(username==="SwissCheese" && password==="tryhackingme000"){
 		alert("Login successful");
-		document.location.href="reimbursements.html";
+		document.location.href="sample.html";
 	} else if(username==="TheVoss" && password==="theBoss$$$"){
 		alert("Login successful");
 		document.location.href="acceptordeny.html";

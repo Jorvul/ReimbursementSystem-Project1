@@ -79,15 +79,16 @@ public class ExpenseController {
 			ctx.status(200);
 		};
 		
-		public static Handler createExpenxe=ctx->{
+		public static Handler createExpense=ctx->{
 			ExpenseClass newExpense = ctx.bodyAsClass(ExpenseClass.class);
 			Connection conn = ConnectionUtils.createConnection();
-			PreparedStatement pstmt = conn.prepareStatement("insert into reimbursements (author_id,reimbursement_type,amount,description,submit_date) values (?,?,?,?,?)");
+			PreparedStatement pstmt = conn.prepareStatement("insert into reimbursements (author_id,resolver_id,reimbursement_type,amount,description,submit_date) values (?,?,?,?,?,?)");
 			pstmt.setInt(1,newExpense.getAuthorId());
-			pstmt.setString(2, newExpense.getExpenseType());
-			pstmt.setDouble(3, newExpense.getAmount());
-			pstmt.setString(4,newExpense.getDescription());
-			pstmt.setString(5, newExpense.getSubmitTime());
+			pstmt.setInt(2, newExpense.getResolverId());
+			pstmt.setString(3, newExpense.getExpenseType());
+			pstmt.setDouble(4, newExpense.getAmount());
+			pstmt.setString(5,newExpense.getDescription());
+			pstmt.setString(6, newExpense.getSubmitTime());
 			pstmt.execute();
 			ctx.status(200);
 			
@@ -97,12 +98,12 @@ public class ExpenseController {
 			ResultSet rs;
 			PreparedStatement ptsmt;
 			int c = Integer.parseInt(ctx.pathParam("expenseid"));
-			ArrayList<ExpenseClass> expense = new ArrayList<ExpenseClass>();
 			Connection conn=ConnectionUtils.createConnection();
 				String selectExpense = "select * from reimbursements where author_id=?";
 				ptsmt = conn.prepareStatement(selectExpense);
 				ptsmt.setInt(1,c);
 				rs = ptsmt.executeQuery();
+				ArrayList<ExpenseClass> expense = new ArrayList<ExpenseClass>();
 				ExpenseClass c1;
 				while(rs.next()) {
 					int id1 = rs.getInt("author_id");
@@ -113,10 +114,22 @@ public class ExpenseController {
 					String id5 = rs.getString("submit_date");
 					boolean id8 = rs.getBoolean("accepted");
 					c1 = new ExpenseClass(id1, id2, string, id3, id4, id5, id8);
-					//ExpenseClass.add(c1);
+					expense.add(c1);
 				}
+				ctx.json(expense);
+			    rs.close();
+			    ptsmt.close();
 		};
 		
-
+		public static Handler ApproveDenyExpense=ctx->{
+			 int id =Integer.parseInt(ctx.pathParam("author_id"));
+			 ExpenseClass s1=ctx.bodyAsClass(ExpenseClass.class);
+			 Connection conn= ConnectionUtils.createConnection();
+				PreparedStatement pstmt= conn.prepareStatement("update reimbursements set accepted=? where author_id=?");
+				pstmt.setBoolean(1,s1.isAccepted());
+				pstmt.setInt(2, id);
+				pstmt.execute();
+				ctx.status(200);
+		 };
 	
 }
