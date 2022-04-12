@@ -1,7 +1,35 @@
+function getExpenseById(){
+var apiURL = 'http://localhost:8080/employee/401';
+    alert("These are all your expenses");
+    fetch(apiURL)
+    .then(response => response.json())  // convert to json
+    .then(json => displayData1(json))    //pass data to displayData() OR print data to console
+    .catch(err => console.log('Request Failed', err)); // Catch errors
+    
+}
+function displayData1(response) {
+    var dataSection = document.getElementById('myExp');
+
+   //alert(response.length)
+   var list=document.createElement("ul");
+
+   for(i=0;i<response.length;i++){
+    var item=document.createElement("li");
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       //alert(response[i].id +" "+response[i].name);
+       list.appendChild(item);
+   }
+   dataSection.appendChild(list);
 
 
-var apiURL = 'http://localhost:8080/employees';
+}
+
+
+
+
+
 function getAllEmployees(){
+var apiURL = 'http://localhost:8080/employees';
     alert("These are all the employees");
     fetch(apiURL)
     .then(response => response.json())  // convert to json
@@ -9,6 +37,32 @@ function getAllEmployees(){
     .catch(err => console.log('Request Failed', err)); // Catch errors
     
 }
+function displayData(response) {
+    var dataSection = document.getElementById('exp');
+
+   //alert(response.length)
+   var list=document.createElement("ul");
+
+   for(i=0;i<response.length;i++){
+    var item=document.createElement("li");
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       //alert(response[i].id +" "+response[i].name);
+       list.appendChild(item);
+   }
+   dataSection.appendChild(list);
+
+
+}
+
+function getAllExpenses(){
+	var apiURL = 'http://localhost:8080/expenses';
+    alert("These are all the expenses");
+    fetch(apiURL)
+    .then(response => response.json())  // convert to json
+    .then(json => displayData(json))    //pass data to displayData() OR print data to console
+    .catch(err => console.log('Request Failed', err)); // Catch errors
+}
+
 async function AsyncFunc(data){
 	let user = { authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	description:data.description, submitTime:new Date().toLocaleString
@@ -30,7 +84,7 @@ async function AsyncFunc1(data){
 	description:data.description, submitTime:new Date().toLocaleString
 		
 	};
-	let response = await fetch('http://localhost:8080/expenses/501',{ method:'GET',
+	let response = await fetch('http://localhost:8080/expenses',{ method:'GET',
 	headers:{
 		'Content-Type':'application/json'},
 		body: JSON.stringify(user)
@@ -42,23 +96,6 @@ async function AsyncFunc1(data){
 }
 
 
-
-function displayData(response) {
-    var dataSection = document.getElementById('results');
-
-   //alert(response.length)
-   var list=document.createElement("ul");
-
-   for(i=0;i<response.length;i++){
-    var item=document.createElement("li");
-       item.innerHTML=response[i].employeeId +" "+response[i].employeeName + " " +response[i].employeeTitle+ " "+response[i].username+ " "+response[i].password;
-       //alert(response[i].id +" "+response[i].name);
-       list.appendChild(item);
-   }
-   dataSection.appendChild(list);
-
-
-}
 
 function buttonClicked(){
 	const username = document.getElementById("username").value;
@@ -80,7 +117,7 @@ function buttonClicked(){
 		document.location.href="reimbursements.html";
 	} else if(username==="TheVoss" && password==="theBoss$$$"){
 		alert("Login successful");
-		document.location.href="sample.html";
+		document.location.href="acceptordeny.html";
 	} else {
 		alert("Login failed")
 	}
@@ -110,7 +147,7 @@ function onFormSubmit(){
 	const formData = readFormData();
 	insertNewRecord(formData);
 	 AsyncFunc(formData);
-	 AsyncFunc1(formData);
+	 
 	//resetForm();
 }
 function readFormData(){

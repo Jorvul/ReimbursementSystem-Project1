@@ -9,9 +9,11 @@ import com.jorge.classes.EmployeeClass;
 import com.jorge.classes.ExpenseClass;
 import com.jorge.jdbc.ConnectionUtils;
 
+import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
 public class ExpenseController {
+	
 	public static Handler getAllExpenses=ctx->{
 		 //1. get connection using coonecUtil Class
 		 ResultSet rs;
@@ -28,17 +30,14 @@ public class ExpenseController {
 		 ArrayList<ExpenseClass> sList = new ArrayList<ExpenseClass>();
 		 ExpenseClass s;
 		 while(rs.next()) {
-			 int expid = rs.getInt("id");
-			 int id = rs.getInt("author_id");
-			 int resolve = rs.getInt("resolver_id");
+			 int expid = rs.getInt("author_id");
+			 int id = rs.getInt("resolver_id");
 			 String type = rs.getString("reimbursement_type");
 			 double amount = rs.getDouble("amount");
 			 String description = rs.getString("description");
 			 String date = rs.getString("submit_date");
-			 String sdate = rs.getString("resolved_date");
-			 boolean resolved = rs.getBoolean("resolved");
 			 boolean accept = rs.getBoolean("accepted");
-			 s=new ExpenseClass(expid, id, resolve, type, amount, description, date, sdate, resolved, accept);
+			 s=new ExpenseClass(expid, id, type, amount, description, date, accept);
 			 sList.add(s);
 		 }
 		 rs.close();
@@ -106,19 +105,18 @@ public class ExpenseController {
 				rs = ptsmt.executeQuery();
 				ExpenseClass c1;
 				while(rs.next()) {
-					int id = rs.getInt("id");
 					int id1 = rs.getInt("author_id");
 					int id2 = rs.getInt("resolver_id");
 					String string = rs.getString("reimbursement_type");
 					Double id3 = rs.getDouble("amount");
 					String id4 = rs.getString("description");
 					String id5 = rs.getString("submit_date");
-					String id6 = rs.getString("resolved_date");
-					boolean id7 = rs.getBoolean("resolved");
 					boolean id8 = rs.getBoolean("accepted");
-					c1 = new ExpenseClass(id,id1, id2, string, id3, id4, id5, id6, id7, id8);
+					c1 = new ExpenseClass(id1, id2, string, id3, id4, id5, id8);
 					//ExpenseClass.add(c1);
 				}
 		};
+		
+
 	
 }

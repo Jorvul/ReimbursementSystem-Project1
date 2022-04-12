@@ -1,5 +1,9 @@
 package com.jorge.dao;
 
-public interface ExpenseDAO {
+import java.util.ArrayList;
 
+import com.jorge.classes.ExpenseClass;
+
+public interface ExpenseDAO {
+	ArrayList<ExpenseClass> getAllexpenses();
 }

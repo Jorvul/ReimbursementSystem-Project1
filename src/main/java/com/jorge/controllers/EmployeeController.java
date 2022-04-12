@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.jorge.classes.EmployeeClass;
+import com.jorge.classes.ExpenseClass;
 import com.jorge.jdbc.ConnectionUtils;
 
 import io.javalin.http.Handler;
@@ -44,19 +45,21 @@ public class EmployeeController {
 	 public static Handler getEmployeeById = ctx -> {
 		    int p = Integer.parseInt(ctx.pathParam("employee_id"));
 		    Connection conn = ConnectionUtils.createConnection();
-		    String selectEmployees = "select * from employee where employee_id=?";
+		    String selectEmployees = "select * from reimbursements where author_id=?";
 		    PreparedStatement ptsmt = conn.prepareStatement(selectEmployees);
 		    ptsmt.setInt(1, p);
 		    ResultSet rs = ptsmt.executeQuery();
-		    ArrayList<EmployeeClass> sList = new ArrayList<EmployeeClass>();
-		    EmployeeClass s;
+		    ArrayList<ExpenseClass> sList = new ArrayList<ExpenseClass>();
+		    ExpenseClass s;
 		    while (rs.next()) {
-		        int id = rs.getInt("employee_id");
-		        String name = rs.getString("employee_name");
-		        String title = rs.getString("employee_title");
-				 String user = rs.getString("username");
-				 String pass = rs.getString("password");
-		        s = new EmployeeClass(id, name, title, user, pass);
+		        int id = rs.getInt("author_id");
+		        int id2 = rs.getInt("resolver_id");
+		        String name = rs.getString("reimbursement_type");
+		        double title = rs.getDouble("amount");
+		        String descr= rs.getString("description");
+				 String user = rs.getString("submit_date");
+				 boolean pass = rs.getBoolean("accepted");
+		        s = new ExpenseClass(id, id2, name, title, descr, user, pass);
 		        sList.add(s);
 		    }
 
