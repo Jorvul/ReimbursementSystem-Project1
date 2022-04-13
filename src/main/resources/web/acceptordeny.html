@@ -12,7 +12,7 @@
 </nav>
 <form class="f1">
 <h3>Reimbursements Details:</h3>
-<table border="2">
+<!--<table border="2">
 <tr>
 <th>ID</th>
 <th>Author Id</th>
@@ -37,10 +37,15 @@
 <td></td>
 <td></td>
 </tr>
-</table>
+</table>-->
 <br/>
-<button id="exp" type="button" onclick="getAllExpenses()">Approve request</button>
-<button type="button">Deny request</button>
+<button id="exp" type="button" onclick="getAllExpenses()">Click to see reimbursements requests</button>
+<br/>
+<br/>
+<p>Type employee ID</p>
+<input type="number">
+<button id="yes" type="button" onclick="denyApproveRequest()">Approve request</button>
+<button id="no" type="button">Deny request</button>
 </form>
 </body>
 </html>

@@ -1,5 +1,7 @@
+
+//get expenses for individual employee
 function getExpenseById(){
-var apiURL = 'http://localhost:8080/employee/401';
+var apiURL = 'http://localhost:8080/expenses/301';
     alert("These are all your expenses");
     fetch(apiURL)
     .then(response => response.json())  // convert to json
@@ -54,9 +56,10 @@ function displayData(response) {
 
 }
 
+//get all expenses
 function getAllExpenses(){
 	var apiURL = 'http://localhost:8080/expenses';
-    alert("These are all the expenses");
+    alert("These are all the employees requests");
     fetch(apiURL)
     .then(response => response.json())  // convert to json
     .then(json => displayData2(json))    //pass data to displayData() OR print data to console
@@ -66,7 +69,7 @@ function displayData2(response) {
     var dataSection = document.getElementById('exp');
 
    //alert(response.length)
-   var list=document.createElement("ul");
+   var list=document.createElement("ol");
 
    for(i=0;i<response.length;i++){
     var item=document.createElement("li");
@@ -78,12 +81,13 @@ function displayData2(response) {
 
 
 }
-
+//create expense
 async function AsyncFunc(data){
-	let user = { authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
-	description:data.description, submitTime:new Date().toLocaleString
+	let user = { authorId:data.employeeID, expenseType:data.expense,amount:data.amount, 
+	description:data.description, submitTime:new Date()
 		
 	};
+	console.log(user)
 	let response = await fetch('http://localhost:8080/expenses',{ method:'POST',
 	headers:{
 		'Content-Type':'application/json'},
@@ -110,9 +114,53 @@ async function AsyncFunc1(data){
 		alert(result.message);
 	
 }
+//accept or deny request
+function requestDecision(){
+	let approve = document.getElementById("yes").value;
+	let deny = document.getElementById("no").value;
+	let decision = 0;
+	if(approve.checked){
+		decision = approve.value
+		denyAppriveRequest(decision)
+	} else if(deny.checked){
+		decision = deny.value;
+		denyApproveRequest(decision);
+	}
+}
+
+async function denyApproveRequest(decision){
+	let user = { accepted: true
+		
+	};
+	let response = await fetch('http://localhost:8080/employee/{author_id}',{ method:'PUT',
+	headers:{
+		'Content-Type':'application/json'},
+		body: JSON.stringify(user)
+	});
+		
+		let result = await response.json();
+		displayData3(result);
+	
+}
+function displayData3(response) {
+    var dataSection = document.getElementById('exp');
+
+   //alert(response.length)
+   var list=document.createElement("ul");
+
+   for(i=0;i<response.length;i++){
+    var item=document.createElement("li");
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       //alert(response[i].id +" "+response[i].name);
+       list.appendChild(item);
+   }
+   dataSection.appendChild(list);
 
 
+}
 
+
+//login in portal
 function buttonClicked(){
 	const username = document.getElementById("username").value;
 	const password = document.getElementById("password").value;
@@ -132,7 +180,7 @@ function buttonClicked(){
 		alert("Login successful");
 		document.location.href="sample.html";
 	} else if(username==="TheVoss" && password==="theBoss$$$"){
-		alert("Login successful");
+		alert("Welcome Ms.Hernandez");
 		document.location.href="acceptordeny.html";
 	} else {
 		alert("Login failed")
@@ -163,6 +211,7 @@ function onFormSubmit(){
 	const formData = readFormData();
 	insertNewRecord(formData);
 	 AsyncFunc(formData);
+	 AsyncFunc1(formData);
 	 
 	//resetForm();
 }
