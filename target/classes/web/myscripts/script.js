@@ -1,7 +1,7 @@
 
 //get expenses for individual employee
 function getExpenseById(){
-var apiURL = 'http://localhost:8080/expenses/301';
+var apiURL = 'http://localhost:8080/expenses/501';
     alert("These are all your expenses");
     fetch(apiURL)
     .then(response => response.json())  // convert to json
@@ -25,10 +25,6 @@ function displayData1(response) {
 
 
 }
-
-
-
-
 
 function getAllEmployees(){
 var apiURL = 'http://localhost:8080/employees';
@@ -83,7 +79,7 @@ function displayData2(response) {
 }
 //create expense
 async function AsyncFunc(data){
-	let user = { authorId:data.employeeID, expenseType:data.expense,amount:data.amount, 
+	let user = { authorId:data.employeeID, resolverId:101, expenseType:data.expense,amount:data.amount, 
 	description:data.description, submitTime:new Date()
 		
 	};
@@ -114,6 +110,22 @@ async function AsyncFunc1(data){
 		alert(result.message);
 	
 }
+/*async function AsyncFunc2(data){
+	let user = { authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	description:data.description, submitTime:new Date().toLocaleString
+		
+	};
+	console.log(user)
+	let response = await fetch('http://localhost:8080/employee/601',{ method:'PUT',
+	headers:{
+		'Content-Type':'application/json'},
+		body: JSON.stringify(user)
+	});
+		
+		let result = await response.json();
+		alert(result.message);
+	
+}*/
 //accept or deny request
 function requestDecision(){
 	let approve = document.getElementById("yes").value;
@@ -178,7 +190,8 @@ function buttonClicked(){
 		document.location.href="sample.html";
 	} else if(username==="SwissCheese" && password==="tryhackingme000"){
 		alert("Login successful");
-		document.location.href="sample.html";
+		document.location.href = "reimbursements.html";
+		//document.location.href="sample.html";
 	} else if(username==="TheVoss" && password==="theBoss$$$"){
 		alert("Welcome Ms.Hernandez");
 		document.location.href="acceptordeny.html";
@@ -212,7 +225,7 @@ function onFormSubmit(){
 	insertNewRecord(formData);
 	 AsyncFunc(formData);
 	 AsyncFunc1(formData);
-	 
+	 //AsyncFunc2(formData);
 	//resetForm();
 }
 function readFormData(){

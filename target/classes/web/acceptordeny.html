@@ -10,7 +10,7 @@
 <nav>
 <a href="index.html">Home</a>
 </nav>
-<form class="f1">
+<form class="f1" onsubmit="event.preventDefault();onFormSubmit();">
 <h3>Reimbursements Details:</h3>
 <!--<table border="2">
 <tr>
@@ -44,8 +44,9 @@
 <br/>
 <p>Type employee ID</p>
 <input type="number">
-<button id="yes" type="button" onclick="denyApproveRequest()">Approve request</button>
+<input type="submit" value="Submit">
 <button id="no" type="button">Deny request</button>
 </form>
+<button id="yes" type="button" onclick="toDenyApprove()">Approve request</button>
 </body>
 </html>
