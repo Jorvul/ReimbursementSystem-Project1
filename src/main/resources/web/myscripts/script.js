@@ -186,8 +186,8 @@ function buttonClicked(){
 		alert("Login successful");
 		document.location.href="sample.html";
 	} else if(username==="FashionCap" && password==="ABCDEF!"){
-		alert("Login successful");
-		document.location.href="sample.html";
+		alert("Welcome Ms.Jenkins");
+		document.location.href="employee401.html";
 	} else if(username==="SwissCheese" && password==="tryhackingme000"){
 		alert("Login successful");
 		document.location.href = "reimbursements.html";
