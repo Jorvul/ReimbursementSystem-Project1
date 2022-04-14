@@ -177,19 +177,19 @@ function buttonClicked(){
 	const username = document.getElementById("username").value;
 	const password = document.getElementById("password").value;
 	if(username==="Pelotero" && password=== "pasword"){
-		alert("Hello Mr.Marmol!");
-		document.location.href="sample.html";
+		alert("Welcome Mr.Marmol!");
+		document.location.href="employee301.html";
 	} else if(username ==="Boomer" && password==="tooOldForThis100A!") {
-		alert("Login successful");
-		document.location.href="sample";
+		alert("Welcome Mr. Stray");
+		document.location.href="employee201.html";
 	} else if(username==="Thor123" && password==="dawgsss3350?"){
-		alert("Login successful");
-		document.location.href="sample.html";
+		alert("Welcome Mr. Freeman");
+		document.location.href="employee601.html";
 	} else if(username==="FashionCap" && password==="ABCDEF!"){
 		alert("Welcome Ms.Jenkins");
 		document.location.href="employee401.html";
 	} else if(username==="SwissCheese" && password==="tryhackingme000"){
-		alert("Login successful");
+		alert("Welcome Mr. Hobbs!");
 		document.location.href = "reimbursements.html";
 		//document.location.href="sample.html";
 	} else if(username==="TheVoss" && password==="theBoss$$$"){

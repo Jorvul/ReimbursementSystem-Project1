@@ -134,6 +134,41 @@ async function emp401Approve(data){
 		
 }
 
+async function emp301Deny(data){
+	let user = {  accepted:false//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	//description:data.description, submitTime:new Date().toLocaleString
+		
+	};
+	console.log(user)
+	let response = await fetch('http://localhost:8080/employee/301',{ method:'POST',
+	headers:{
+		'Content-Type':'application/json'},
+		body: JSON.stringify(user)
+	});
+		
+		let result = await response.json();
+		alert(result.message);
+		
+}
+
+async function emp301Approve(data){
+	let user = {  accepted:true//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	//description:data.description, submitTime:new Date().toLocaleString
+		
+	};
+	console.log(user)
+	let response = await fetch('http://localhost:8080/employee/301',{ method:'POST',
+	headers:{
+		'Content-Type':'application/json'},
+		body: JSON.stringify(user)
+	});
+		
+		let result = await response.json();
+		alert(result.message);
+		
+}
+
+
 function ApproveFunc(){
 	const user = document.getElementById("empNum").value;
 	if(user==="601"){
@@ -144,6 +179,10 @@ function ApproveFunc(){
 		emp201Approve();
 	}if(user==="401"){
 		emp401Approve();
+	} if (user==="301"){
+		emp301Approve();
+	} else{
+		alert("Employee ID not in the system");
 	}
 }
 
@@ -157,6 +196,10 @@ function DenyFunc(){
 		emp201Deny();
 	} if(user==="401"){
 		emp401Deny();
+	} if(user ==="301"){
+		emp301Deny();
+	} else {
+		alert("Employee ID not in the system");
 	}
 }
 /*function ApproveFunc(){

@@ -1,9 +1,9 @@
 
 html{
-	background-color: teal;
+	background-color: darkseagreen;
 }
 
-form{
+.myform{
 	margin:20px;
 	border-style: solid;
 	width: 735px;
@@ -12,7 +12,8 @@ form{
 	align-content: center;
 	padding-bottom: 15px;
 	background-color: gray;
-	padding-top: 15px
+	padding-top: 15px;
+	background-color: blue;
 }
 
 .burse{
@@ -38,15 +39,17 @@ form{
 
 #title{
 	text-align: center;
+	font-size: 50px
 }
 
 .earth_svg {
-    height: 200px;
+	background-color: darkseagreen;
+    height: 100px;
     width: auto;
     margin-left: 300px;
     /* Your animation here
     /* Set up your keyframe animation here */
-    animation: spin infinite linear 0s;
+    animation: spin infinite linear 4s;
 }
 
   @keyframes spin {
@@ -57,4 +60,12 @@ form{
 
 .list{
 	background-color:silver;
+}
+
+#b1{
+	border-style: solid;
+}
+.text{
+	font-weight: bold;
+	color: orange;
 }

@@ -11,24 +11,24 @@
 <table>
 <tr>
 <td>
-<form class="allform" onsubmit="event.preventDefault();onFormSubmit();">
+<form class="myform" onsubmit="event.preventDefault();onFormSubmit();">
 <div>
-<label>Employee ID</label>
+<label class="text">Employee ID</label>
 <input type="text" name="employeeID" id="employeeID">
 </div>
 <br/>
 <div>
-<label>Expense Type</label>
+<label class="text">Expense Type</label>
 <input type="text" name="expense" id="expense">
 </div>
 <br/>
 <div>
-<label>Amount</label>
+<label class="text">Amount</label>
 <input type="number" name="amount" id="amount">
 </div>
 <br/>
 <div>
-<label>Description</label>
+<label class="text">Description</label>
 <textarea rows="3" cols="20" name="description" id="description"></textarea>
 </div>
 <br/>
@@ -55,7 +55,7 @@
 </tr>
 <tbody></tbody>
 </table>
-<input type="submit" name="Accept" id="accept" value="Accept" onclick="acceptOrDenyFunc()">
-<input type="submit" name="reject" id="reject" value="Reject" onclick="acceptOrDenyFunc()">
+<!--<input type="submit" name="Accept" id="accept" value="Accept" onclick="acceptOrDenyFunc()">
+<input type="submit" name="reject" id="reject" value="Reject" onclick="acceptOrDenyFunc()">-->
 </body>
 </html>
