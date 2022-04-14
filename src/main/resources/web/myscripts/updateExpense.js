@@ -173,13 +173,13 @@ function ApproveFunc(){
 	const user = document.getElementById("empNum").value;
 	if(user==="601"){
 		AsyncFunc5();
-	}if(user==="501"){
+	}else if(user==="501"){
 		AsyncFunc6();
-	}if(user ==="201"){
+	}else if(user ==="201"){
 		emp201Approve();
-	}if(user==="401"){
+	}else if(user==="401"){
 		emp401Approve();
-	} if (user==="301"){
+	} else if (user==="301"){
 		emp301Approve();
 	} else{
 		alert("Employee ID not in the system");
@@ -190,13 +190,13 @@ function DenyFunc(){
 	const user = document.getElementById("empNum").value;
 	if(user ==="601"){
 		AsyncFunc4();
-	}if(user==="501"){
+	} else if(user==="501"){
 		emp501Deny();
-	} if(user==="201"){
+	} else if(user==="201"){
 		emp201Deny();
-	} if(user==="401"){
+	} else if(user==="401"){
 		emp401Deny();
-	} if(user ==="301"){
+	} else if(user ==="301"){
 		emp301Deny();
 	} else {
 		alert("Employee ID not in the system");
