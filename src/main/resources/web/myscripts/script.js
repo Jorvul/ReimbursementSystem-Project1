@@ -63,7 +63,7 @@ function getAllExpenses(){
 }
 function displayData2(response) {
     var dataSection = document.getElementById('exp');
-
+ 
    //alert(response.length)
    var list=document.createElement("ol");
 

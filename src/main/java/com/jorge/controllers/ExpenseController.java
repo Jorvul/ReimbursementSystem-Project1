@@ -94,6 +94,15 @@ public class ExpenseController {
 			
 		};
 		
+//		public static Handler createApproveOrDenyExpense= ctx-> {
+//			ExpenseClass exp = ctx.bodyAsClass(ExpenseClass.class);
+//			Connection conn = ConnectionUtils.createConnection();
+//			PreparedStatement pstmt = conn.prepareStatement("insert into reimbursements (accepted) values (?)");
+//			pstmt.setBoolean(1, exp.isAccepted());
+//			pstmt.execute();
+//			ctx.status(200);
+//		};
+		
 		public static Handler getExpenseById=ctx->{
 			ResultSet rs;
 			PreparedStatement ptsmt;

@@ -5,13 +5,29 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="mycss/styles.css">
 <script src="myscripts/script.js"></script>
+<script src="myscripts/updateExpense.js"></script>
 </head>
 <body>
 <nav>
 <a href="index.html">Home</a>
 </nav>
-<form class="f1" onsubmit="event.preventDefault();onFormSubmit();">
+<form class="f1">
 <h3>Reimbursements Details:</h3>
+<button id="exp" type="button" onclick="getAllExpenses()">Click to see reimbursements requests</button>
+</form>
+<br/>
+<br/>
+<form class="f1">
+<div>
+<p>Type employee ID to Approve or Deny Requests</p>
+<input type="number">
+<button onclick="AsyncFunc4()" id="no" type="button">Deny request</button>
+<button id="yes" type="button" onclick="AsyncFunc5()">Approve request</button>
+<!--<label>Employee ID</label>
+<input type="text" name="employeeID" id="empID">-->
+</div>
+<!--<input type="submit" value="Submit">-->
+</form>
 <!--<table border="2">
 <tr>
 <th>ID</th>
@@ -39,14 +55,10 @@
 </tr>
 </table>-->
 <br/>
-<button id="exp" type="button" onclick="getAllExpenses()">Click to see reimbursements requests</button>
 <br/>
 <br/>
 <p>Type employee ID</p>
-<input type="number">
-<input type="submit" value="Submit">
-<button id="no" type="button">Deny request</button>
-</form>
-<button id="yes" type="button" onclick="toDenyApprove()">Approve request</button>
+<button onclick="AsyncFunc4()" id="no" type="button">Deny request</button>
+<button id="yes" type="button" onclick="AsyncFunc4()">Approve request</button>
 </body>
 </html>

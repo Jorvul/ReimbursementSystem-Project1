@@ -20,7 +20,8 @@ public class Main {
 		app.get("/expenses", ExpenseController.getAllExpenses);
 		app.post("/expenses", ExpenseController.createExpense);
 		app.get("/expenses/{expenseid}", ExpenseController.getExpenseById);
-		app.put("/employee/{author_id}", ExpenseController.ApproveDenyExpense);
+		//app.post("/employee", ExpenseController.createApproveOrDenyExpense);
+		app.post("/employee/{author_id}", ExpenseController.ApproveDenyExpense);
 	}
 
 }
