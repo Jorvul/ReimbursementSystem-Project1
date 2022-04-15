@@ -80,7 +80,7 @@ function displayData2(response) {
 //create expense
 async function AsyncFunc(data){
 	let user = { authorId:data.employeeID, resolverId:101, expenseType:data.expense,amount:data.amount, 
-	description:data.description, submitTime:new Date()
+	description:data.description, submitTime:new Date().toLocaleString()
 		
 	};
 	console.log(user)
@@ -97,7 +97,7 @@ async function AsyncFunc(data){
 
 async function AsyncFunc1(data){
 	let user = { authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
-	description:data.description, submitTime:new Date().toLocaleString
+	description:data.description, submitTime:new Date().toLocaleString()
 		
 	};
 	let response = await fetch('http://localhost:8080/expenses',{ method:'GET',
