@@ -69,3 +69,9 @@ html{
 	font-weight: bold;
 	color: orange;
 }
+ol{
+	background-color: gray;
+}
+#exp{
+	background-color: gray;
+}

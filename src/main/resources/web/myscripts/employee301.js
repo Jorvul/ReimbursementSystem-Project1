@@ -16,7 +16,7 @@ function displayData1(response) {
 
    for(i=0;i<response.length;i++){
     var item=document.createElement("li");
-       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted+ " "+response[i].result;
        //alert(response[i].id +" "+response[i].name);
        list.appendChild(item);
    }

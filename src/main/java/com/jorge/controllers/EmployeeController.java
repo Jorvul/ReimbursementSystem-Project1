@@ -59,7 +59,8 @@ public class EmployeeController {
 		        String descr= rs.getString("description");
 				 String user = rs.getString("submit_date");
 				 boolean pass = rs.getBoolean("accepted");
-		        s = new ExpenseClass(id, id2, name, title, descr, user, pass);
+				 String res =rs.getString("result");
+		        s = new ExpenseClass(id, id2, name, title, descr, user, pass, res);
 		        sList.add(s);
 		    }
 

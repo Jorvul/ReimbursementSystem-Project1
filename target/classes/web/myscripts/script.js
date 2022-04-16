@@ -17,7 +17,7 @@ function displayData1(response) {
 
    for(i=0;i<response.length;i++){
     var item=document.createElement("li");
-       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted+" "+reponse[i].result;
        //alert(response[i].id +" "+response[i].name);
        list.appendChild(item);
    }
@@ -43,7 +43,7 @@ function displayData(response) {
 
    for(i=0;i<response.length;i++){
     var item=document.createElement("li");
-       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted+ " "+response[i].result;
        //alert(response[i].id +" "+response[i].name);
        list.appendChild(item);
    }
@@ -63,13 +63,14 @@ function getAllExpenses(){
 }
 function displayData2(response) {
     var dataSection = document.getElementById('exp');
+
  
    //alert(response.length)
    var list=document.createElement("ol");
 
    for(i=0;i<response.length;i++){
     var item=document.createElement("li");
-       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted;
+       item.innerHTML=response[i].authorId +" "+response[i].resolverId + " " +response[i].expenseType+ " "+response[i].amount+ " "+response[i].description+ " "+ response[i].submitTime+ " " +response[i].accepted+ " "+response[i].result;
        //alert(response[i].id +" "+response[i].name);
        list.appendChild(item);
    }
@@ -77,10 +78,11 @@ function displayData2(response) {
 
 
 }
+
 //create expense
 async function AsyncFunc(data){
 	let user = { authorId:data.employeeID, resolverId:101, expenseType:data.expense,amount:data.amount, 
-	description:data.description, submitTime:new Date().toLocaleString()
+	description:data.description, submitTime:new Date().toLocaleString(),
 		
 	};
 	console.log(user)
@@ -95,7 +97,7 @@ async function AsyncFunc(data){
 	
 }
 
-async function AsyncFunc1(data){
+/*async function AsyncFunc1(data){
 	let user = { authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	description:data.description, submitTime:new Date().toLocaleString()
 		
@@ -109,7 +111,7 @@ async function AsyncFunc1(data){
 		let result = await response.json();
 		alert(result.message);
 	
-}
+}*/
 /*async function AsyncFunc2(data){
 	let user = { authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	description:data.description, submitTime:new Date().toLocaleString
@@ -224,7 +226,7 @@ function onFormSubmit(){
 	const formData = readFormData();
 	insertNewRecord(formData);
 	 AsyncFunc(formData);
-	 AsyncFunc1(formData);
+	 //AsyncFunc1(formData);
 	 //AsyncFunc2(formData);
 	//resetForm();
 }
@@ -299,6 +301,3 @@ function rejectFunc(){
 	//localStorage.setItem("storedItem", item4);
 
 //}
-function get(){
-	localStorage.getItem("storedItem");
-}

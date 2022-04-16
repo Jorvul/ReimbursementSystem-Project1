@@ -9,13 +9,14 @@ public class ExpenseClass {
 	private String description;
 	private String submitTime;
 	private boolean accepted;
+	private String result;
 	
 	public ExpenseClass() {
 		super();
 	}
 
 	public ExpenseClass( int authorId, int resolverId,String expenseType, double amount, String description,
-			String submitTime, boolean accepted) {
+			String submitTime, boolean accepted, String result) {
 		super();
 		this.authorId = authorId;
 		this.resolverId = resolverId;
@@ -24,6 +25,7 @@ public class ExpenseClass {
 		this.description = description;
 		this.submitTime = submitTime;
 		this.accepted = accepted;
+		this.result = result;
 	}
 
 
@@ -84,11 +86,19 @@ public class ExpenseClass {
 		this.accepted = accepted;
 	}
 
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	@Override
 	public String toString() {
 		return "ExpenseClass [authorId=" + authorId + ", resolverId=" + resolverId + ", expenseType=" + expenseType
 				+ ", amount=" + amount + ", description=" + description + ", submitTime=" + submitTime + ", accepted="
-				+ accepted + "]";
+				+ accepted + ", result=" + result + "]";
 	}
 	
 }

@@ -1,5 +1,5 @@
 async function AsyncFunc4(data){
-	let user = {  accepted:false//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"denied"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -16,7 +16,7 @@ async function AsyncFunc4(data){
 }
 
 async function AsyncFunc5(data){
-	let user = {  accepted:true//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"approved"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -33,7 +33,7 @@ async function AsyncFunc5(data){
 }
 
 async function AsyncFunc6(data){
-	let user = {  accepted:true//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"approved"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -50,7 +50,7 @@ async function AsyncFunc6(data){
 }
 
 async function emp501Deny(data){
-	let user = {  accepted:false//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"denied"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -67,7 +67,7 @@ async function emp501Deny(data){
 }
 
 async function emp201Deny(data){
-	let user = {  accepted:false//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"denied"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -84,7 +84,7 @@ async function emp201Deny(data){
 }
 
 async function emp201Approve(data){
-	let user = {  accepted:true//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"approved"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -101,7 +101,7 @@ async function emp201Approve(data){
 }
 
 async function emp401Deny(data){
-	let user = {  accepted:false//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"denied"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -118,7 +118,7 @@ async function emp401Deny(data){
 }
 
 async function emp401Approve(data){
-	let user = {  accepted:true//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"approved"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -135,7 +135,7 @@ async function emp401Approve(data){
 }
 
 async function emp301Deny(data){
-	let user = {  accepted:false//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"denied"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -152,7 +152,7 @@ async function emp301Deny(data){
 }
 
 async function emp301Approve(data){
-	let user = {  accepted:true//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
+	let user = {  accepted:true,result:"approved"//authorId:data.employeeId, expenseType:data.expense,amount:data.amount, 
 	//description:data.description, submitTime:new Date().toLocaleString
 		
 	};
@@ -230,3 +230,5 @@ function readFormData(){
 	//formData["description"]= document.getElementById("description").value;
 	return formData;
 }
+
+
