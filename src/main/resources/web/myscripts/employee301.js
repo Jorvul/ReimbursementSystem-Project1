@@ -1,7 +1,7 @@
 //get expenses for individual employee
 function getExpenseById(){
 var apiURL = 'http://localhost:8080/expenses/301';
-    alert("These are all your expenses");
+    alert("These are all your requests");
     fetch(apiURL)
     .then(response => response.json())  // convert to json
     .then(json => displayData1(json))    //pass data to displayData() OR print data to console

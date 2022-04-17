@@ -39,7 +39,10 @@ html{
 
 #title{
 	text-align: center;
-	font-size: 50px
+	font-size: 60px;
+	font-family: monospace;
+	text-transform: uppercase;
+	color: maroon;
 }
 
 .earth_svg {
@@ -69,9 +72,18 @@ html{
 	font-weight: bold;
 	color: orange;
 }
-ol{
+.home{
+	font-size:15px;
+	font-family:fantasy;
+	border-style:double;
+	border-color: blue;
+	border-width: 4px;
+	background-color: white;
+	text-decoration: none;
+}
+/*ol{
 	background-color: gray;
 }
 #exp{
 	background-color: gray;
-}
+}*/
