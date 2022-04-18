@@ -4,12 +4,12 @@ Feature: Login Action
 Scenario Outline: Successful Login with Valid Credentials using Scenario
     Given User is on Home Page
     When User Navigate to LogIn Page
-    #And User enters UserName and Password
-    #And User enters "testuser" and "Password@123"
+    And User enters username and password
+    And User enters "Thor123" and "dawgsss3350?"
     And User enters "<username>" and "<password>"
-    Then Message displayed Login Successfully
+    #Then Message displayed Login Successfully
     
     Examples:
     | username   | password |
-    | testuser   | Password@123 |
+   | Thor123   | dawgsss3350? |
    

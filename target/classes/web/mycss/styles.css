@@ -71,6 +71,7 @@ html{
 .text{
 	font-weight: bold;
 	color: orange;
+	border-radius: 20px;
 }
 .home{
 	font-size:15px;

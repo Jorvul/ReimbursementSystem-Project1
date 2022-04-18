@@ -11,6 +11,7 @@ var apiURL = 'http://localhost:8080/expenses/501';
 }
 function displayData1(response) {
     var dataSection = document.getElementById('myExp');
+    
 	
    //alert(response.length)
    var list=document.createElement("ul");
